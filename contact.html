@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | VSC &amp; SUPPLY LLC</title>
+<meta name="description" content="Contact VSC & SUPPLY LLC — 24/7 maritime operations. Email: ceo@vsc.supply · WhatsApp: +1 334 763 3841 · Office in Hollywood, Florida.">
+
+<link rel="icon" type="image/png" href="img/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        space: '#000000', ink: '#0a0a0c', fog: '#1d1d1f',
+        silver: '#86868b', pearl: '#f5f5f7',
+        cyan: '#00C2CB', mint: '#00E5A0',
+      },
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="water-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="nav-ios fixed top-0 left-0 right-0 z-50">
+  <div class="container-apple flex items-center justify-between h-20">
+    <a href="index.html" class="logo-brand">
+      <img src="img/logo.png" alt="VSC Logo">
+      <div class="logo-brand-text">
+        <span class="logo-brand-title">Victory Ship Chartering &amp; Supply LLC</span>
+        <span class="logo-brand-sub">Certainty &amp; Excellence at Sea</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs text-silver">
+      <a href="index.html" class="hover:text-white transition" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="hover:text-white transition" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="hover:text-white transition" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="hover:text-white transition" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="text-white" data-i18n="nav_contact">Contacto</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch hidden sm:flex">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <a href="contact.html" class="btn-apple btn-apple-primary !py-2 !px-5 !text-xs" data-i18n="nav_quote">Cotizar</a>
+      <button id="menuToggle" class="md:hidden text-white text-xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-ink border-t border-white/5">
+    <div class="container-apple py-4 flex flex-col gap-4 text-sm">
+      <a href="index.html" class="text-silver" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="text-silver" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="text-silver" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="text-silver" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="text-white" data-i18n="nav_contact">Contacto</a>
+      <div class="lang-switch self-start mt-2">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative pt-48 pb-20 overflow-hidden">
+  <div class="container-apple relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs text-cyan mb-8 reveal">
+        <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
+        <span data-i18n="contact_badge">Disponibles 24/7 · Operaciones Globales</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6 reveal">
+        <span class="text-gradient" data-i18n="contact_title">Hablemos de su</span><br>
+        <span class="text-gradient-cyan" data-i18n="contact_title_accent">próxima operación.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-silver max-w-2xl mx-auto font-light reveal" data-i18n="contact_sub">
+        Nuestro equipo está disponible 24/7 para atender cualquier consulta sobre fletamento, inspecciones, suministros, agencia o logística marítima.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CARDS — Hyperlinks directos -->
+<section class="pb-20 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+
+      <!-- EMAIL CARD — Abre el cliente de correo -->
+      <a href="mailto:ceo@vsc.supply" class="glass-strong rounded-3xl p-8 text-center reveal hover:scale-[1.03] transition-transform duration-300 group cursor-pointer">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 6l-10 7L2 6"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.3em] mb-3 font-medium" data-i18n="contact_email_label">Email</div>
+        <div class="text-white font-semibold text-base md:text-lg mb-2 break-all">ceo@vsc.supply</div>
+        <div class="text-silver text-xs flex items-center justify-center gap-1 group-hover:text-cyan transition-colors">
+          <span data-i18n="contact_email_cta">Enviar email</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- WHATSAPP CARD — Abre la app de WhatsApp -->
+      <a href="https://wa.me/13347633841" target="_blank" rel="noopener" class="glass-strong rounded-3xl p-8 text-center reveal hover:scale-[1.03] transition-transform duration-300 group cursor-pointer">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.3em] mb-3 font-medium" data-i18n="contact_whatsapp_label">WhatsApp</div>
+        <div class="text-white font-semibold text-base md:text-lg mb-2">+1 334 763 3841</div>
+        <div class="text-silver text-xs flex items-center justify-center gap-1 group-hover:text-cyan transition-colors">
+          <span data-i18n="contact_whatsapp_cta">Chatear ahora</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- OFFICE CARD — Información (sin link) -->
+      <div class="glass-strong rounded-3xl p-8 text-center reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mx-auto mb-5">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.3em] mb-3 font-medium" data-i18n="contact_office_label">Oficina Corporativa</div>
+        <div class="text-white font-semibold text-sm md:text-base leading-relaxed mb-2">
+          2165 Van Buren St, Suite 911
+        </div>
+        <div class="text-silver text-xs">
+          Hollywood, FL 33020 · USA
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+
+      <div class="lg:col-span-2 reveal">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white mb-6" data-i18n="contact_form_title">Envíenos un mensaje</h2>
+        <p class="text-silver mb-8 font-light" data-i18n="contact_form_sub">
+          Complete el formulario y nuestro equipo le responderá en menos de 2 horas.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <div class="text-white text-sm font-medium" data-i18n="contact_benefit_1">Respuesta en menos de 2 horas</div>
+              <div class="text-silver text-xs" data-i18n="contact_benefit_1_sub">Atención personalizada 24/7</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <div class="text-white text-sm font-medium" data-i18n="contact_benefit_2">Cotización sin compromiso</div>
+              <div class="text-silver text-xs" data-i18n="contact_benefit_2_sub">Tarifas competitivas del mercado</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <div class="text-white text-sm font-medium" data-i18n="contact_benefit_3">Cobertura internacional certificada</div>
+              <div class="text-silver text-xs" data-i18n="contact_benefit_3_sub">IFIA · ISO · ASTM · API · IP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3 reveal">
+        <!-- Formulario que usa mailto al enviar -->
+        <form id="contactForm" class="glass-strong rounded-3xl p-8 md:p-10 space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-xs text-silver uppercase tracking-wider mb-2" data-i18n="contact_name_label">Nombre completo *</label>
+              <input type="text" id="name" name="name" required
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-silver/50 focus:outline-none focus:border-cyan/50 focus:bg-white/10 transition"
+                data-i18n-placeholder="contact_name_placeholder">
+            </div>
+            <div>
+              <label for="email" class="block text-xs text-silver uppercase tracking-wider mb-2" data-i18n="contact_email_field_label">Email *</label>
+              <input type="email" id="email" name="email" required
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-silver/50 focus:outline-none focus:border-cyan/50 focus:bg-white/10 transition"
+                data-i18n-placeholder="contact_email_placeholder">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label for="company" class="block text-xs text-silver uppercase tracking-wider mb-2" data-i18n="contact_company_label">Empresa</label>
+              <input type="text" id="company" name="company"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-silver/50 focus:outline-none focus:border-cyan/50 focus:bg-white/10 transition"
+                data-i18n-placeholder="contact_company_placeholder">
+            </div>
+            <div>
+              <label for="phone" class="block text-xs text-silver uppercase tracking-wider mb-2" data-i18n="contact_phone_field_label">Teléfono</label>
+              <input type="tel" id="phone" name="phone"
+                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-silver/50 focus:outline-none focus:border-cyan/50 focus:bg-white/10 transition"
+                data-i18n-placeholder="contact_phone_placeholder">
+            </div>
+          </div>
+          <div>
+            <label for="service" class="block text-xs text-silver uppercase tracking-wider mb-2" data-i18n="contact_service_label">Servicio de interés</label>
+            <select id="service" name="service"
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan/50 focus:bg-white/10 transition">
+              <option value="Inspecciones & Q&Q" class="bg-ink" data-i18n="contact_service_1">Inspecciones &amp; Q&amp;Q</option>
+              <option value="Shipmanagement" class="bg-ink" data-i18n="contact_service_2">Shipmanagement</option>
+              <option value="Chartering & Agencia" class="bg-ink" data-i18n="contact_service_3">Chartering &amp; Agencia</option>
+              <option value="Shipchandler & Supply" class="bg-ink" data-i18n="contact_service_4">Shipchandler &amp; Supply</option>
+              <option value="Marine Agency & Logistics" class="bg-ink" data-i18n="contact_service_5">Marine Agency &amp; Logistics</option>
+              <option value="Commodity Trading" class="bg-ink" data-i18n="contact_service_6">Commodity Trading</option>
+              <option value="Offshore & Specialized" class="bg-ink" data-i18n="contact_service_7">Offshore &amp; Specialized</option>
+              <option value="Marine Logistics" class="bg-ink" data-i18n="contact_service_8">Marine Logistics</option>
+              <option value="Consulting & Advisory" class="bg-ink" data-i18n="contact_service_9">Consulting &amp; Advisory</option>
+              <option value="Otros" class="bg-ink" data-i18n="contact_service_10">Otros</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-xs text-silver uppercase tracking-wider mb-2" data-i18n="contact_message_label">Mensaje *</label>
+            <textarea id="message" name="message" rows="5" required
+              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-silver/50 focus:outline-none focus:border-cyan/50 focus:bg-white/10 transition resize-none"
+              data-i18n-placeholder="contact_message_placeholder"></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="btn-apple btn-apple-primary w-full !py-4 text-base" data-i18n="contact_submit">
+            Enviar mensaje
+          </button>
+          <p class="text-center text-xs text-silver" data-i18n="contact_privacy">
+            Al enviar acepta nuestra política de privacidad.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="glass-strong rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-6">
+          <span data-i18n="contact_cta_title">¿Listo para</span>
+          <span class="text-gradient-cyan" data-i18n="contact_cta_title_accent">zarpar?</span>
+        </h2>
+        <p class="text-silver text-lg font-light max-w-xl mx-auto mb-10" data-i18n="contact_cta_sub">
+          Complete el formulario o escríbanos por cualquiera de nuestros canales.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <a href="mailto:ceo@vsc.supply" class="btn-apple btn-apple-primary w-full sm:w-auto">ceo@vsc.supply</a>
+          <a href="https://wa.me/13347633841" target="_blank" rel="noopener" class="btn-apple btn-apple-ghost w-full sm:w-auto" data-i18n="contact_whatsapp_cta">Chatear ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12">
+  <div class="container-apple">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-silver">
+      <div class="flex items-center gap-2">
+        <img src="img/logo.png" alt="VSC & Supply LLC" style="height: 24px; width: auto; object-fit: contain;">
+        <span>© 2026 VSC &amp; SUPPLY LLC · All Rights Reserved</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" class="hover:text-white transition" data-i18n="footer_terms">Términos</a>
+        <a href="contact.html" class="hover:text-white transition" data-i18n="footer_contact">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPT: Enviar formulario con mailto: -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const DEST_EMAIL = 'ceo@vsc.supply';
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('name')?.value.trim() || '';
+    const email   = document.getElementById('email')?.value.trim() || '';
+    const company = document.getElementById('company')?.value.trim() || '';
+    const phone   = document.getElementById('phone')?.value.trim() || '';
+    const serviceSelect = document.getElementById('service');
+    const service = serviceSelect?.value || '';
+    const message = document.getElementById('message')?.value.trim() || '';
+
+    if (!name || !email || !message) {
+      alert('Por favor complete todos los campos obligatorios (*).');
+      return;
+    }
+
+    const subject = encodeURIComponent(`Nuevo mensaje desde la web - ${name}`);
+    const body = encodeURIComponent(
+      `Nuevo mensaje desde el formulario de contacto de VSC & SUPPLY LLC\n` +
+      `============================================================\n\n` +
+      `Nombre:     ${name}\n` +
+      `Email:      ${email}\n` +
+      `Empresa:    ${company || '(no especificada)'}\n` +
+      `Teléfono:   ${phone || '(no especificado)'}\n` +
+      `Servicio:   ${service}\n\n` +
+      `Mensaje:\n` +
+      `------------------------------------------------------------\n` +
+      `${message}\n` +
+      `------------------------------------------------------------\n\n` +
+      `Enviado desde el sitio web oficial de VSC & SUPPLY LLC\n`
+    );
+
+    const mailtoLink = `mailto:${DEST_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+
+    const btn = document.getElementById('submitBtn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '✓ Abriendo su correo...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }, 3000);
+  });
+});
+</script>
+
+<script src="js/translations.js"></script>
+<script src="js/water-effect.js"></script>
+<script src="js/ai-chat.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

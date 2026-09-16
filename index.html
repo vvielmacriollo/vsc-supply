@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victory Ship Chartering & Supply LLC — Certainty & Excellence at Sea</title>
+<meta name="description" content="Global maritime partner delivering end-to-end maritime services: inspections, shipmanagement, chartering, marine supply and port logistics.">
+
+<link rel="icon" type="image/png" href="img/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        space: '#000000', ink: '#0a0a0c', fog: '#1d1d1f',
+        silver: '#86868b', pearl: '#f5f5f7',
+        cyan: '#00C2CB', mint: '#00E5A0',
+      },
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="water-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="nav-ios fixed top-0 left-0 right-0 z-50">
+  <div class="container-apple flex items-center justify-between h-20">
+    <a href="index.html" class="logo-brand">
+      <img src="img/logo.png" alt="Victory Ship Logo">
+      <div class="logo-brand-text">
+        <span class="logo-brand-title">Victory Ship Chartering & Supply LLC</span>
+        <span class="logo-brand-sub">Certainty & Excellence at Sea</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs text-silver">
+      <a href="index.html" class="text-white" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="hover:text-white transition" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="hover:text-white transition" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="hover:text-white transition" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="hover:text-white transition" data-i18n="nav_contact">Contacto</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch hidden sm:flex">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <a href="contact.html" class="btn-apple btn-apple-primary !py-2 !px-5 !text-xs" data-i18n="nav_quote">Cotizar</a>
+      <button id="menuToggle" class="md:hidden text-white text-xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-ink border-t border-white/5">
+    <div class="container-apple py-4 flex flex-col gap-4 text-sm">
+      <a href="index.html" class="text-white" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="text-silver" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="text-silver" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="text-silver" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="text-silver" data-i18n="nav_contact">Contacto</a>
+      <div class="lang-switch self-start mt-2">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center pt-40 pb-20 overflow-hidden">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="img/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="container-apple relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs text-cyan mb-8 reveal">
+        <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
+        <span data-i18n="hero_tag">Global Maritime Operations</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] mb-8 reveal text-gradient" data-i18n="hero_title">
+        Certainty &amp; Excellence at Sea
+      </h1>
+      <p class="text-lg md:text-xl text-silver max-w-2xl mx-auto mb-12 font-light reveal" data-i18n="hero_sub">
+        Servicios marítimos integrales basados en certeza operativa, calidad certificada y cumplimiento internacional. Desde inspecciones de carga hasta fletamento y logística portuaria en las principales rutas comerciales del mundo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center reveal">
+        <a href="#explore" class="btn-apple btn-apple-primary w-full sm:w-auto">
+          <span data-i18n="hero_cta1">Explorar el Sitio</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="contact.html" class="btn-apple btn-apple-ghost w-full sm:w-auto" data-i18n="hero_cta2">Solicitar Cotización</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="py-32 relative">
+  <div class="container-apple">
+    <div class="max-w-3xl mx-auto text-center reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="intro_label">Bienvenido a Bordo</span>
+      <h2 class="text-3xl md:text-5xl font-semibold tracking-tight mt-6 mb-8 text-white leading-tight">
+        <span data-i18n="intro_title">Descubra lo que nos convierte en el</span>
+        <span class="text-gradient-cyan" data-i18n="intro_title_accent">socio marítimo de confianza.</span>
+      </h2>
+      <p class="text-silver text-lg font-light leading-relaxed" data-i18n="intro_desc">
+        Victory Ship Chartering &amp; Supply LLC ofrece servicios marítimos integrales basados en certeza operativa, calidad certificada y cumplimiento internacional. Explore cada sección de nuestro sitio para conocer nuestras capacidades, estándares y cómo podemos servir sus operaciones marítimas en todo el mundo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE -->
+<section id="explore" class="pb-32 relative">
+  <div class="container-apple">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="explore_label">Explorar el Sitio</span>
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4 text-white">
+        <span data-i18n="explore_title">¿Por dónde quiere</span>
+        <span class="text-gradient-cyan" data-i18n="explore_title_accent">comenzar?</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <a href="about.html" class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 8v12h16V8l-8-6z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2" data-i18n="explore_1_tag">Sección 01</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="explore_1_title">Sobre Nosotros</h3>
+        <p class="text-silver text-sm leading-relaxed mb-5" data-i18n="explore_1_desc">
+          Nuestra historia, liderazgo y los valores que impulsan nuestras operaciones marítimas globales.
+        </p>
+        <span class="text-cyan text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+          <span data-i18n="explore_1_cta">Explorar sección</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="commitment.html" class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2" data-i18n="explore_2_tag">Sección 02</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="explore_2_title">Compromiso</h3>
+        <p class="text-silver text-sm leading-relaxed mb-5" data-i18n="explore_2_desc">
+          Cumplimiento internacional, certificaciones y nuestro compromiso con la protección del océano.
+        </p>
+        <span class="text-cyan text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+          <span data-i18n="explore_2_cta">Explorar sección</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="areas.html" class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="8" width="18" height="12" rx="1"/>
+            <path d="M3 12h18M8 8V4h8v4"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2" data-i18n="explore_3_tag">Sección 03</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="explore_3_title">Áreas de Negocio</h3>
+        <p class="text-silver text-sm leading-relaxed mb-5" data-i18n="explore_3_desc">
+          Nueve unidades especializadas: inspecciones, shipmanagement, fletamento, suministros, agencia, trading y más.
+        </p>
+        <span class="text-cyan text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+          <span data-i18n="explore_3_cta">Explorar sección</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <a href="contact.html" class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 6l-10 7L2 6"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2" data-i18n="explore_4_tag">Sección 04</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="explore_4_title">Contacto</h3>
+        <p class="text-silver text-sm leading-relaxed mb-5" data-i18n="explore_4_desc">
+          Póngase en contacto con nuestro equipo 24/7 — oficina corporativa y operaciones globales.
+        </p>
+        <span class="text-cyan text-sm font-medium flex items-center gap-2 group-hover:gap-3 transition-all">
+          <span data-i18n="explore_4_cta">Explorar sección</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CORE BUSINESS UNITS -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="services_label">Core Business Units</span>
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4 text-white">
+        <span data-i18n="services_title">Soluciones marítimas</span>
+        <span class="text-gradient-cyan" data-i18n="services_title_accent">integradas.</span>
+      </h2>
+      <p class="text-silver text-lg font-light max-w-2xl mx-auto mt-6" data-i18n="services_sub">
+        Nueve unidades de negocio especializadas que ofrecen servicios marítimos integrales en todo el mundo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="3" width="12" height="18" rx="2"/>
+            <path d="M9 8l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="srv1_title">Inspecciones y Q&amp;Q</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="srv1_desc">Control de carga especializado, supervisión de pérdidas e inspección certificada de calidad y cantidad respaldada por estándares IFIA e ISO.</p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18h18l-2-8H5l-2 8zM12 10V4M8 4h8"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="srv2_title">Shipmanagement</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="srv2_desc">Operación segura de buques, gestión técnica, cumplimiento de sociedades de clasificación y gestión completa de tripulaciones.</p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="5" r="3"/>
+            <line x1="12" y1="22" x2="12" y2="8"/>
+            <path d="M5 12H2a10 10 0 0020 0h-3"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="srv3_title">Fletamento y Agencia</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="srv3_desc">Amplia experiencia en fletamentos por viaje/tiempo, representación marítima completa y comercio internacional de commodities.</p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="8" width="18" height="12" rx="1"/>
+            <path d="M3 12h18M8 8V4h8v4"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="srv4_title">Shipchandler y Suministros</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="srv4_desc">Suministros y logística integral para buques en puertos y fondeaderos de todo el mundo.</p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="srv5_title">Agencia Marítima y Logística</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="srv5_desc">Representación directa del cliente, supervisión portuaria, husbandry de tripulación y soporte regulatorio en puertos estratégicos.</p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6 group-hover:scale-110 transition">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 8v12h16V8l-8-6zM9 22v-6h6v6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="srv6_title">Comercio de Commodities</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="srv6_desc">Petróleo crudo, productos refinados, químicos y commodities agroalimentarios con inspección certificada y soporte aduanero.</p>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="areas.html" class="btn-apple btn-apple-ghost">
+        <span data-i18n="services_cta">Ver todas las áreas de negocio</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="py-32 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      <div class="text-center reveal">
+        <div class="text-5xl md:text-7xl font-semibold text-gradient-cyan"><span class="counter" data-target="30">0</span>+</div>
+        <div class="text-xs md:text-sm text-silver uppercase tracking-wider mt-3" data-i18n="stat_vessels">Buques Gestionados</div>
+      </div>
+      <div class="text-center reveal">
+        <div class="text-5xl md:text-7xl font-semibold text-gradient-cyan"><span class="counter" data-target="1000">0</span>+</div>
+        <div class="text-xs md:text-sm text-silver uppercase tracking-wider mt-3" data-i18n="stat_seafarers">Marinos</div>
+      </div>
+      <div class="text-center reveal">
+        <div class="text-5xl md:text-7xl font-semibold text-gradient-cyan"><span class="counter" data-target="5">0</span>+</div>
+        <div class="text-xs md:text-sm text-silver uppercase tracking-wider mt-3" data-i18n="stat_years">Años de Experiencia</div>
+      </div>
+      <div class="text-center reveal">
+        <div class="text-5xl md:text-7xl font-semibold text-gradient-cyan">24/7</div>
+        <div class="text-xs md:text-sm text-silver uppercase tracking-wider mt-3" data-i18n="stat_ops">Operaciones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="why_label">Por qué Victory Ship</span>
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4 text-white">
+        <span data-i18n="why_title">Construido sobre</span>
+        <span class="text-gradient-cyan" data-i18n="why_title_accent">la certeza.</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="glass-strong rounded-3xl p-8 reveal">
+        <div class="text-3xl mb-4">🛡️</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="why_1_title">Certificación Internacional</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="why_1_desc">Operaciones certificadas IFIA, ISO 9001:2015 e ISO 17020, con estándares internacionales ASTM, API e IP.</p>
+      </div>
+      <div class="glass-strong rounded-3xl p-8 reveal">
+        <div class="text-3xl mb-4">🌎</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="why_2_title">Alcance Global</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="why_2_desc">Operaciones en los principales corredores comerciales globales con fuerte conectividad entre armadores y fletadores.</p>
+      </div>
+      <div class="glass-strong rounded-3xl p-8 reveal">
+        <div class="text-3xl mb-4">⚓</div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="why_3_title">Trayectoria Comprobada</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="why_3_desc">De confianza desde 2021 para los principales traders internacionales de petróleo, armadores y agencias navieras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="glass-strong rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="relative z-10">
+        <div class="text-2xl md:text-3xl text-cyan font-light italic mb-6">"Certainty &amp; Excellence at Sea"</div>
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-6">
+          <span data-i18n="cta_title">¿Listo para</span>
+          <span class="text-gradient-cyan" data-i18n="cta_title_accent">zarpar?</span>
+        </h2>
+        <p class="text-silver text-lg font-light max-w-xl mx-auto mb-10" data-i18n="cta_sub">
+          Nuestro equipo está disponible 24/7 para atender su próxima operación marítima.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <a href="contact.html" class="btn-apple btn-apple-primary w-full sm:w-auto" data-i18n="cta_btn">Contáctenos Ahora</a>
+          <a href="areas.html" class="btn-apple btn-apple-ghost w-full sm:w-auto" data-i18n="cta_btn2">Explorar Áreas de Negocio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12">
+  <div class="container-apple">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-silver">
+      <div class="flex items-center gap-2">
+        <img src="img/logo.png" alt="Victory Ship" style="height: 24px; width: auto; object-fit: contain;">
+        <span>© 2026 VSC &amp; SUPPLY LLC · All Rights Reserved</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" class="hover:text-white transition" data-i18n="footer_terms">Términos</a>
+        <a href="contact.html" class="hover:text-white transition" data-i18n="footer_contact">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/water-effect.js"></script>
+<script src="js/ai-chat.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

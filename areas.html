@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Áreas | VSC &amp; SUPPLY LLC</title>
+<meta name="description" content="Complete portfolio of maritime services: inspections, shipmanagement, chartering, marine supply, agency, logistics, trading and specialized offshore services worldwide.">
+
+<link rel="icon" type="image/png" href="img/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        space: '#000000', ink: '#0a0a0c', fog: '#1d1d1f',
+        silver: '#86868b', pearl: '#f5f5f7',
+        cyan: '#00C2CB', mint: '#00E5A0',
+      },
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<canvas id="water-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="nav-ios fixed top-0 left-0 right-0 z-50">
+  <div class="container-apple flex items-center justify-between h-20">
+    <a href="index.html" class="logo-brand">
+      <img src="img/logo.png" alt="VSC Logo">
+      <div class="logo-brand-text">
+        <span class="logo-brand-title">Victory Ship Chartering &amp; Supply LLC</span>
+        <span class="logo-brand-sub">Certainty &amp; Excellence at Sea</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs text-silver">
+      <a href="index.html" class="hover:text-white transition" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="hover:text-white transition" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="hover:text-white transition" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="text-white" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="hover:text-white transition" data-i18n="nav_contact">Contacto</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch hidden sm:flex">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <a href="contact.html" class="btn-apple btn-apple-primary !py-2 !px-5 !text-xs" data-i18n="nav_quote">Cotizar</a>
+      <button id="menuToggle" class="md:hidden text-white text-xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-ink border-t border-white/5">
+    <div class="container-apple py-4 flex flex-col gap-4 text-sm">
+      <a href="index.html" class="text-silver" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="text-silver" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="text-silver" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="text-white" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="text-silver" data-i18n="nav_contact">Contacto</a>
+      <div class="lang-switch self-start mt-2">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative pt-48 pb-20 overflow-hidden">
+  <div class="container-apple relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs text-cyan mb-8 reveal">
+        <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
+        <span data-i18n="areas_badge">Portafolio completo de servicios marítimos globales</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.05] mb-6 reveal">
+        <span class="text-gradient" data-i18n="areas_title">Todas las áreas</span><br>
+        <span class="text-gradient-cyan" data-i18n="areas_title_accent">del ámbito marítimo.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-silver max-w-3xl mx-auto font-light reveal" data-i18n="areas_sub">
+        Desde inspecciones certificadas hasta operaciones offshore, gestión de flota, logística marítima internacional y trading de commodities, cubrimos el espectro completo de servicios marítimos en los principales puertos y rutas comerciales del mundo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 01: INSPECTIONS & QUALITY CONTROL -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_1">UNIDAD 01</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_1_title">
+          Inspections &amp; Quality Control
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_1_desc">
+          Servicios especializados de Cargo Control, Supervisión y Certificación con trayectoria comprobada desde 2021. Trabajamos bajo los más altos estándares internacionales para traders, armadores, aseguradoras y operadores logísticos.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_1">Quality &amp; Quantity (Q&amp;Q) Surveys</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_2">Loss Control &amp; Cargo Damage Surveys</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_3">Bunker &amp; Draft Surveys</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_4">Fiscal Control of Hydrocarbons</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_5">Hold Cleanliness &amp; Readiness Inspections</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_6">Slop Treatment &amp; Disposal Supervision</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_7">Pre-load &amp; Post-discharge Surveys</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_1_item_8">Ullage &amp; Sampling Operations</span>
+          </div>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/20">IFIA</span>
+          <span class="px-3 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/20">ISO 9001:2015</span>
+          <span class="px-3 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/20">ISO 17020</span>
+          <span class="px-3 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/20">ASTM</span>
+          <span class="px-3 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/20">API</span>
+          <span class="px-3 py-1 rounded-full bg-cyan/10 text-cyan border border-cyan/20">IP</span>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan"><span class="counter" data-target="4">0</span>+</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_1_stat_1">Años de Experiencia</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">IFIA</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Petroleum Inspector</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">ISO</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">9001 / 17020</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">24/7</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_1_stat_2">Cobertura Global</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 02: SHIPMANAGEMENT -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div class="lg:order-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_2">UNIDAD 02</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_2_title">
+          Shipmanagement &amp; Technical Operation
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_2_desc">
+          Gestión técnica, operativa y de tripulación bajo los más estrictos estándares internacionales de seguridad, calidad y prevención de la contaminación.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_1">Technical Management (ISM, PMS, Dry-dock)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_2">Crew Management &amp; Manning</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_3">Classification Society Compliance</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_4">Insurance Management (H&amp;M, P&amp;I)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_5">Flag State &amp; Port State Control</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_6">Bunkering &amp; Fuel Management</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_7">Maintenance &amp; Spare Parts Coordination</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_2_item_8">Vetting &amp; SIRE Inspections</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10 lg:order-1">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan"><span class="counter" data-target="30">0</span>+</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_2_stat_1">Buques Gestionados</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan"><span class="counter" data-target="1000">0</span>+</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_2_stat_2">Marinos</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">NCB</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Class Society</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">ISM</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">ISPS · MLC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- UNIDAD 03: CHARTERING & SHIPBROKERING -->
+<!-- ============================================= -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_3">UNIDAD 03</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_3_title">
+          Chartering &amp; Shipbrokering
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_3_desc">
+          Marketing marítimo integral, brokerage y negociación de contratos de flete adaptados a los requerimientos comerciales de armadores, operadores y traders a nivel global.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_1">Time Charter (TC)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_2">Voyage Charter (VC)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_3">Contract of Affreightment (COA)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_4">Bareboat Charter</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_5">Spot Market Contracts</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_6">Voyage Estimates &amp; Market Analysis</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_7">Demurrage, Deadfreight &amp; Laytime</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_3_item_8">Sale &amp; Purchase (S&amp;P) Advisory</span>
+          </div>
+        </div>
+
+        <!-- ⬇️ BOTÓN DESCARGAR FORMULARIO ⬇️ -->
+        <div class="mt-8">
+          <a href="img/VSC_FORM.pdf" download="VSC_FORM.pdf" class="btn-apple btn-apple-primary inline-flex items-center gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span data-i18n="areas_3_download_btn">Descargar Formulario</span>
+          </a>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">5+</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_3_stat_1">Tipos de Contrato</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">24/7</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Market Watch</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">🌎</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_3_stat_2">Rutas Globales</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">B2B</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_3_stat_3">Líneas Directas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 04: SHIPCHANDLER & MARINE SUPPLY -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div class="lg:order-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_4">UNIDAD 04</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_4_title">
+          Shipchandler &amp; Marine Supply
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_4_desc">
+          Suministros integrales y logística para buques en puertos y fondeaderos de todo el mundo: provisiones, repuestos, lubricantes, equipos técnicos y servicios a bordo.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_1">Provisions (Fresh, Dry, Frozen)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_2">Deck, Engine &amp; Cabin Stores</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_3">Lubricants &amp; Chemicals</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_4">Spare Parts &amp; Technical Equipment</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_5">Fresh Water &amp; Ballast</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_6">Minor Repairs &amp; Technical Support</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_7">Delivery Logistics &amp; Procurement</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_4_item_8">Ship-to-Ship &amp; Port Delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10 lg:order-1">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">🌎</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_4_stat_1">Red Global</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">24/7</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_4_stat_2">Despacho</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 05: MARINE AGENCY & PORT LOGISTICS -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_5">UNIDAD 05</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_5_title">
+          Marine Agency &amp; Port Logistics
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_5_desc">
+          Representación directa del cliente, supervisión portuaria, coordinación operativa y husbandry en puertos estratégicos a nivel internacional.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_1">Port Agency &amp; Owner Representation</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_2">Loading &amp; Discharge Supervision</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_3">Crew Changes &amp; Immigration</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_4">Customs Clearance &amp; Documentation</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_5">Waste Management &amp; MARPOL Compliance</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_6">ISPS Security &amp; Port Clearance</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_7">Bunker &amp; Fresh Water Arrangements</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_5_item_8">Emergency Response &amp; Port Fee Negotiation</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">24/7</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_5_stat_1">Supervisión</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">ISPS</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_5_stat_2">Compliant</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">🌎</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_5_stat_3">Puertos Globales</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">MLC</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Compliant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 06: COMMODITY TRADING -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+        <span data-i18n="areas_num_6">UNIDAD 06</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_6_title">
+        Commodity Trading &amp; Mobilization
+      </h2>
+      <p class="text-silver text-lg font-light max-w-3xl mx-auto" data-i18n="areas_6_desc">
+        Trading internacional certificado de commodities con pleno cumplimiento de estándares globales y soporte logístico end-to-end.
+      </p>
+    </div>
+
+    <div class="glass-strong rounded-3xl p-6 md:p-10 reveal overflow-x-auto mb-10">
+      <table class="w-full text-sm min-w-[640px]">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="text-left py-4 text-cyan uppercase text-xs tracking-wider" data-i18n="areas_table_1">Commodity / Producto</th>
+            <th class="text-left py-4 text-cyan uppercase text-xs tracking-wider" data-i18n="areas_table_2">Modalidad</th>
+            <th class="text-left py-4 text-cyan uppercase text-xs tracking-wider" data-i18n="areas_table_3">Mercados</th>
+            <th class="text-left py-4 text-cyan uppercase text-xs tracking-wider" data-i18n="areas_table_4">Estándares</th>
+          </tr>
+        </thead>
+        <tbody class="text-silver">
+          <tr class="border-b border-white/5">
+            <td class="py-4 text-white" data-i18n="areas_table_r1_c1">Crudo &amp; Slop</td>
+            <td class="py-4" data-i18n="areas_table_r1_c2">Tanqueros / Barcazas</td>
+            <td class="py-4" data-i18n="areas_table_r1_c3">Mercados internacionales</td>
+            <td class="py-4" data-i18n="areas_table_r1_c4">ASTM / API</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-4 text-white" data-i18n="areas_table_r2_c1">Diésel &amp; Fuel Oil</td>
+            <td class="py-4" data-i18n="areas_table_r2_c2">Buques de producto refinado</td>
+            <td class="py-4" data-i18n="areas_table_r2_c3">Mercados energéticos globales</td>
+            <td class="py-4" data-i18n="areas_table_r2_c4">ISO 9001:2015</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-4 text-white" data-i18n="areas_table_r3_c1">Químicos &amp; Contenedores</td>
+            <td class="py-4" data-i18n="areas_table_r3_c2">Tanques especializados / ISO</td>
+            <td class="py-4" data-i18n="areas_table_r3_c3">Líneas internacionales</td>
+            <td class="py-4" data-i18n="areas_table_r3_c4">IFIA Certified</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-4 text-white" data-i18n="areas_table_r4_c1">Commodities Agroalimentarios</td>
+            <td class="py-4" data-i18n="areas_table_r4_c2">Granel &amp; Refrigerado</td>
+            <td class="py-4" data-i18n="areas_table_r4_c3">Mercados globales</td>
+            <td class="py-4" data-i18n="areas_table_r4_c4">Aduanas &amp; Logística de Exportación</td>
+          </tr>
+          <tr class="border-b border-white/5">
+            <td class="py-4 text-white" data-i18n="areas_table_r5_c1">Minerales &amp; Metales</td>
+            <td class="py-4" data-i18n="areas_table_r5_c2">Graneleros / Breakbulk</td>
+            <td class="py-4" data-i18n="areas_table_r5_c3">Mercados industriales</td>
+            <td class="py-4" data-i18n="areas_table_r5_c4">ISO / ASTM</td>
+          </tr>
+          <tr>
+            <td class="py-4 text-white" data-i18n="areas_table_r6_c1">Contenedores &amp; Carga Proyecto</td>
+            <td class="py-4" data-i18n="areas_table_r6_c2">Portacontenedores / Multipropósito</td>
+            <td class="py-4" data-i18n="areas_table_r6_c3">Rutas globales</td>
+            <td class="py-4" data-i18n="areas_table_r6_c4">IMO / SOLAS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 07: OFFSHORE -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div class="lg:order-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_7">UNIDAD 07</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_7_title">
+          Offshore &amp; Specialized Services
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_7_desc">
+          Servicios especializados para operaciones offshore, proyectos de energía y operaciones marítimas de alta complejidad en todo el mundo.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_1">Offshore Supply Vessels (OSV)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_2">Anchor Handling Tugs (AHT)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_3">Platform Supply Vessels (PSV)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_4">Subsea &amp; ROV Support</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_5">Project Cargo &amp; Heavy Lift</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_6">Salvage &amp; Emergency Response</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_7">Towing &amp; Anchor Handling</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_7_item_8">Wind Farm &amp; Renewable Support</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10 lg:order-1">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">OSV</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Offshore</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">AHT</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Anchor Handling</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">ROV</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Subsea</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">🌊</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Renewables</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 08: MARINE LOGISTICS -->
+<section class="pb-24 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_8">UNIDAD 08</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_8_title">
+          Marine Logistics &amp; Seaborne Coordination
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_8_desc">
+          Coordinación logística marítima integral, transporte exclusivamente por vía marítima, consolidación de carga y supervisión operativa de la cadena de suministro a través de los principales puertos y corredores oceánicos del mundo.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_1">Marine Freight Coordination (FCL / LCL)</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_2">Ocean Freight Forwarding</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_3">Cargo Consolidation &amp; Deconsolidation</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_4">Customs Documentation &amp; Clearance</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_5">Marine Cargo Insurance Advisory</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_6">Port-to-Port Coordination</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_7">Container &amp; Vessel Booking</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_8">Bulk Carrier &amp; Tanker Coordination</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_9">Multimodal Sea-Linked Routing</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_10">Bulk &amp; Breakbulk Logistics</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_11">Reefer &amp; Specialized Marine Cargo</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_8_item_12">End-to-End Seaborne Supply Chain</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">FCL</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Full Container</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">LCL</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Groupage</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">🚢</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Ocean Freight</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">📦</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2">Consolidation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDAD 09: MARINE CONSULTING -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal">
+      <div class="lg:order-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 text-cyan text-xs font-medium mb-4">
+          <span data-i18n="areas_num_9">UNIDAD 09</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6 text-white" data-i18n="areas_9_title">
+          Marine Consulting &amp; Advisory
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="areas_9_desc">
+          Consultoría marítima estratégica, peritajes técnicos, arbitrajes y asesoría experta para armadores, operadores, aseguradoras y despachos legales.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-silver text-sm">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_1">Technical &amp; Operational Audits</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_2">Marine Casualty Investigation</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_3">Insurance Claims Support</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_4">Charter Party Disputes</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_5">Expert Witness Testimony</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_6">Due Diligence &amp; Vessel Valuation</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_7">Regulatory &amp; Compliance Advisory</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C2CB" stroke-width="2.5" class="mt-1 flex-shrink-0"><path d="M20 6L9 17l-5-5"/></svg>
+            <span data-i18n="areas_9_item_8">Environmental Impact Assessment</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-strong rounded-3xl p-10 lg:order-1">
+        <div class="grid grid-cols-2 gap-5">
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">⚖️</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_9_stat_1">Arbitraje</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">📋</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_9_stat_2">Auditoría</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">🔍</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_9_stat_3">Peritaje</div>
+          </div>
+          <div class="text-center p-5 rounded-2xl bg-white/5">
+            <div class="text-3xl font-bold text-gradient-cyan">📊</div>
+            <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="areas_9_stat_4">Valoración</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="glass-strong rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-6">
+          <span data-i18n="areas_cta_title">¿Necesita alguno</span>
+          <span class="text-gradient-cyan" data-i18n="areas_cta_title_accent">de estos servicios?</span>
+        </h2>
+        <p class="text-silver text-lg font-light max-w-xl mx-auto mb-10" data-i18n="areas_cta_sub">
+          Nuestro equipo está disponible 24/7 para atender su operación en cualquiera de nuestras áreas de negocio, en cualquier puerto del mundo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <a href="contact.html" class="btn-apple btn-apple-primary w-full sm:w-auto" data-i18n="areas_cta_btn">Solicitar Cotización</a>
+          <a href="contact.html" class="btn-apple btn-apple-ghost w-full sm:w-auto" data-i18n="areas_cta_btn2">Contáctenos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12">
+  <div class="container-apple">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-silver">
+      <div class="flex items-center gap-2">
+        <img src="img/logo.png" alt="VSC & Supply LLC" style="height: 24px; width: auto; object-fit: contain;">
+        <span>© 2026 VSC &amp; SUPPLY LLC · All Rights Reserved</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" class="hover:text-white transition" data-i18n="footer_terms">Términos</a>
+        <a href="contact.html" class="hover:text-white transition" data-i18n="footer_contact">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/water-effect.js"></script>
+<script src="js/ai-chat.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

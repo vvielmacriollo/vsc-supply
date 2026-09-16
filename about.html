@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Nosotros | VSC &amp; SUPPLY LLC</title>
+<meta name="description" content="VSC & SUPPLY LLC delivers end-to-end maritime services since 2021. Meet our leadership team and discover our story.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        space: '#000000', ink: '#0a0a0c', fog: '#1d1d1f',
+        silver: '#86868b', pearl: '#f5f5f7',
+        cyan: '#00C2CB', mint: '#00E5A0',
+      },
+    }
+  }
+}
+</script>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+
+<canvas id="water-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="nav-ios fixed top-0 left-0 right-0 z-50">
+  <div class="container-apple flex items-center justify-between h-20">
+    <a href="index.html" class="logo-brand">
+      <img src="img/logo.png" alt="VSC Logo">
+      <div class="logo-brand-text">
+        <span class="logo-brand-title">Victory Ship Chartering &amp; Supply LLC</span>
+        <span class="logo-brand-sub">Certainty &amp; Excellence at Sea</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-xs text-silver">
+      <a href="index.html" class="hover:text-white transition" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="text-white" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="hover:text-white transition" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="hover:text-white transition" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="hover:text-white transition" data-i18n="nav_contact">Contacto</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-switch hidden sm:flex">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <a href="contact.html" class="btn-apple btn-apple-primary !py-2 !px-5 !text-xs" data-i18n="nav_quote">Cotizar</a>
+      <button id="menuToggle" class="md:hidden text-white text-xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-ink border-t border-white/5">
+    <div class="container-apple py-4 flex flex-col gap-4 text-sm">
+      <a href="index.html" class="text-silver" data-i18n="nav_home">Inicio</a>
+      <a href="about.html" class="text-white" data-i18n="nav_about">Sobre Nosotros</a>
+      <a href="commitment.html" class="text-silver" data-i18n="nav_commitment">Compromiso</a>
+      <a href="areas.html" class="text-silver" data-i18n="nav_areas">Áreas</a>
+      <a href="contact.html" class="text-silver" data-i18n="nav_contact">Contacto</a>
+      <div class="lang-switch self-start mt-2">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative pt-48 pb-20 overflow-hidden">
+  <div class="container-apple relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs text-cyan mb-8 reveal">
+        <span class="w-1.5 h-1.5 rounded-full bg-mint animate-pulse"></span>
+        <span data-i18n="about_badge">Desde 2021 · Global Maritime Partner</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-semibold leading-[1.05] mb-6 reveal text-gradient" data-i18n="about_title">
+        Sobre Nosotros
+      </h1>
+      <p class="text-lg md:text-xl text-silver max-w-2xl mx-auto font-light reveal" data-i18n="about_sub">
+        VSC &amp; SUPPLY LLC ofrece servicios marítimos integrales basados en certeza operativa, calidad certificada y cumplimiento internacional.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="about_story_label">Nuestra Historia</span>
+        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mt-4 mb-6 text-white" data-i18n="about_story_title">
+          Certainty &amp; Excellence at Sea
+        </h2>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="about_story_p1">
+          Desde inspecciones de carga y gestión de buques hasta fletamento y logística portuaria, ofrecemos soluciones marítimas perfectamente integradas en las principales rutas comerciales globales.
+        </p>
+        <p class="text-silver mb-5 leading-relaxed" data-i18n="about_story_p2">
+          Nuestro equipo especializado de Cargo Control y Supervision tiene una trayectoria comprobada desde 2021, trabajando en nombre de los principales traders internacionales de petróleo y grandes operadores.
+        </p>
+        <p class="text-silver leading-relaxed" data-i18n="about_story_p3">
+          Somos operadores autorizados por La Sociedad Clasificadora NCB bajo bandera panameña, ofreciendo gestión técnica, de seguros (H&amp;M, P&amp;I) y logística.
+        </p>
+      </div>
+      <div class="reveal">
+        <div class="glass-strong rounded-3xl p-8">
+          <div class="grid grid-cols-2 gap-5">
+            <div class="text-center p-5 rounded-2xl bg-white/5">
+              <div class="text-4xl font-bold text-gradient-cyan"><span class="counter" data-target="30">0</span>+</div>
+              <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="about_vessels">Buques Gestionados</div>
+            </div>
+            <div class="text-center p-5 rounded-2xl bg-white/5">
+              <div class="text-4xl font-bold text-gradient-cyan"><span class="counter" data-target="1000">0</span>+</div>
+              <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="about_seafarers">Marinos</div>
+            </div>
+            <div class="text-center p-5 rounded-2xl bg-white/5">
+              <div class="text-4xl font-bold text-gradient-cyan"><span class="counter" data-target="4">0</span>+</div>
+              <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="about_years">Años de Experiencia</div>
+            </div>
+            <div class="text-center p-5 rounded-2xl bg-white/5">
+              <div class="text-4xl font-bold text-gradient-cyan">24/7</div>
+              <div class="text-xs text-silver uppercase tracking-wider mt-2" data-i18n="about_support">Soporte Operativo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div class="glass-strong rounded-3xl p-10 reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20M2 12h20"/></svg>
+        </div>
+        <h3 class="text-2xl font-semibold text-white mb-4" data-i18n="about_mission_title">Nuestra Misión</h3>
+        <p class="text-silver leading-relaxed" data-i18n="about_mission_desc">
+          Entregar servicios marítimos integrales con calidad internacionalmente certificada, certeza operativa y ética de trabajo inquebrantable — desde la inspección de carga hasta la logística portuaria.
+        </p>
+      </div>
+      <div class="glass-strong rounded-3xl p-10 reveal">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 class="text-2xl font-semibold text-white mb-4" data-i18n="about_vision_title">Nuestra Visión</h3>
+        <p class="text-silver leading-relaxed" data-i18n="about_vision_desc">
+          Ser el socio marítimo global de referencia, reconocido por certeza, excelencia, cumplimiento e integración perfecta en cada corredor comercial que servimos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="about_values_label">Nuestros Valores</span>
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4 text-white">
+        <span data-i18n="about_values_title">Lo que nos</span>
+        <span class="text-gradient-cyan" data-i18n="about_values_title_accent">define.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="about_value_1_title">Certeza</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="about_value_1_desc">
+          Certeza operativa en cada etapa — desde la inspección hasta la entrega final — respaldada por procesos certificados.
+        </p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="about_value_2_title">Excelencia</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="about_value_2_desc">
+          Calidad y ética de trabajo internacionalmente certificadas en la gestión marítima bajo estándares ISO e IFIA.
+        </p>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 parallax-card reveal">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan to-mint flex items-center justify-center mb-6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3" data-i18n="about_value_3_title">Compromiso</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="about_value_3_desc">
+          Nos involucramos en cada proyecto como si fuera propio, protegiendo los intereses de armadores y fletadores en cada puerto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP TEAM -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-cyan font-medium" data-i18n="about_team_label">Nuestro Equipo Directivo</span>
+      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mt-4 text-white">
+        <span data-i18n="about_team_title">Los líderes detrás</span>
+        <span class="text-gradient-cyan" data-i18n="about_team_title_accent">de VSC &amp; SUPPLY LLC.</span>
+      </h2>
+      <p class="text-silver text-lg font-light max-w-2xl mx-auto mt-6" data-i18n="about_team_sub">
+        Un equipo con décadas de experiencia en el sector marítimo mercante, comprometido con la excelencia operativa y la innovación.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <!-- CEO — BRÚJULA MARINA MINIMALISTA -->
+      <div class="glass-strong rounded-3xl p-8 text-center reveal group">
+        <div class="team-avatar-wrapper">
+          <svg class="team-avatar-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradCompass" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2CB"/>
+                <stop offset="100%" stop-color="#00E5A0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- BRÚJULA MARINA -->
+            <!-- Círculo exterior -->
+            <circle cx="60" cy="60" r="38" fill="none" stroke="url(#gradCompass)" stroke-width="4"/>
+            
+            <!-- Marcas cardinales (N, S, E, O) - 4 pequeños trazos -->
+            <line x1="60" y1="22" x2="60" y2="30" stroke="url(#gradCompass)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="60" y1="90" x2="60" y2="98" stroke="url(#gradCompass)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="22" y1="60" x2="30" y2="60" stroke="url(#gradCompass)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="90" y1="60" x2="98" y2="60" stroke="url(#gradCompass)" stroke-width="4" stroke-linecap="round"/>
+            
+            <!-- Aguja de la brújula (rombo alargado) -->
+            <path d="M 60 35 L 68 60 L 60 85 L 52 60 Z" fill="none" stroke="url(#gradCompass)" stroke-width="4" stroke-linejoin="round"/>
+            
+            <!-- Centro de la aguja -->
+            <circle cx="60" cy="60" r="4" fill="url(#gradCompass)"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2 mt-6" data-i18n="about_ceo_role">CEO &amp; Chairman</div>
+        <h3 class="text-xl font-semibold text-white mb-4">Capt. Victor Vielma</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="about_ceo_desc">
+          Lidera VSC &amp; SUPPLY LLC con una trayectoria como Capitán y más de dos décadas en el sector marítimo mercante global.
+        </p>
+      </div>
+
+      <!-- VICE CHAIRMAN — FLECHA ASCENDENTE -->
+      <div class="glass-strong rounded-3xl p-8 text-center reveal group">
+        <div class="team-avatar-wrapper">
+          <svg class="team-avatar-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradGrowth" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2CB"/>
+                <stop offset="100%" stop-color="#00E5A0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- FLECHA ASCENDENTE (Crecimiento / Estrategia) -->
+            <!-- Círculo exterior -->
+            <circle cx="60" cy="60" r="38" fill="none" stroke="url(#gradGrowth)" stroke-width="4"/>
+            
+            <!-- Línea de tendencia ascendente -->
+            <path d="M 38 78 L 52 62 L 64 72 L 84 48" 
+                  fill="none" stroke="url(#gradGrowth)" stroke-width="4" 
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <!-- Punta de flecha -->
+            <path d="M 72 48 L 84 48 L 84 60" 
+                  fill="none" stroke="url(#gradGrowth)" stroke-width="4" 
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2 mt-6" data-i18n="about_vice_role">Vice Chairman</div>
+        <h3 class="text-xl font-semibold text-white mb-4">Lorena Vielma</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="about_vice_desc">
+          Responsable de la estrategia comercial, alianzas internacionales y expansión de la red global de VSC &amp; SUPPLY LLC.
+        </p>
+      </div>
+
+      <!-- IT MANAGER — PROGRAMADOR (sin cambios) -->
+      <div class="glass-strong rounded-3xl p-8 text-center reveal group">
+        <div class="team-avatar-wrapper">
+          <svg class="team-avatar-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradIt" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00C2CB"/>
+                <stop offset="100%" stop-color="#00E5A0"/>
+              </linearGradient>
+            </defs>
+            <!-- Círculo exterior -->
+            <circle cx="60" cy="60" r="38" fill="none" stroke="url(#gradIt)" stroke-width="4"/>
+            
+            <!-- Símbolos de código -->
+            <path d="M 45 45 L 33 60 L 45 75" fill="none" stroke="url(#gradIt)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 75 45 L 87 60 L 75 75" fill="none" stroke="url(#gradIt)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="68" y1="42" x2="52" y2="78" stroke="url(#gradIt)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="text-xs text-cyan uppercase tracking-[0.2em] mb-2 mt-6" data-i18n="about_it_role">IT Manager</div>
+        <h3 class="text-xl font-semibold text-white mb-4">V. Javier Vielma</h3>
+        <p class="text-silver text-sm leading-relaxed" data-i18n="about_it_desc">
+          Dirige la infraestructura tecnológica, ciberseguridad y sistemas digitales de VSC &amp; SUPPLY LLC a nivel global.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-32 relative">
+  <div class="container-apple">
+    <div class="glass-strong rounded-[2.5rem] p-10 md:p-20 text-center relative overflow-hidden reveal">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="relative z-10">
+        <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-6">
+          <span data-i18n="about_cta_title">¿Trabajamos</span>
+          <span class="text-gradient-cyan" data-i18n="about_cta_title_accent">juntos?</span>
+        </h2>
+        <p class="text-silver text-lg font-light max-w-xl mx-auto mb-10" data-i18n="about_cta_sub">
+          Nuestro equipo está disponible 24/7 para atender su próxima operación marítima.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <a href="contact.html" class="btn-apple btn-apple-primary w-full sm:w-auto" data-i18n="about_cta_btn">Contáctenos</a>
+          <a href="areas.html" class="btn-apple btn-apple-ghost w-full sm:w-auto" data-i18n="about_cta_btn2">Ver Áreas</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12">
+  <div class="container-apple">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-silver">
+      <div class="flex items-center gap-2">
+        <img src="img/logo.png" alt="VSC & Supply LLC" style="height: 24px; width: auto; object-fit: contain;">
+        <span>© 2026 VSC &amp; SUPPLY LLC · All Rights Reserved</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white transition" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" class="hover:text-white transition" data-i18n="footer_terms">Términos</a>
+        <a href="contact.html" class="hover:text-white transition" data-i18n="footer_contact">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/water-effect.js"></script>
+<script src="js/ai-chat.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
